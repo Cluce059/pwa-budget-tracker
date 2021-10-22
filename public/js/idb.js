@@ -56,13 +56,8 @@ function checkDB() {
                         throw new Error(serverResponse);
                     }
 
-                    // open one more transaction
                     const transaction = db.transaction(['new_transaction'], 'readwrite');
-
-                    // access the new_transaction object store
                     const budgetObjectStore = transaction.objectStore('new_transaction');
-
-                    // clear all items in your store
                     budgetObjectStore.clear();
 
                     alert('All saved transactions has been submitted!');
